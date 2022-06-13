@@ -43,8 +43,8 @@ class Client:
         except json.JSONDecodeError:
             data = None
 
-        if not response.status < 400:
-            nrm =  response.status < 500
+        if not response.status_code < 400:
+            nrm =  response.status_code < 500
             cls = _errors.ApiError if nrm else _errors.HttpError
             raise cls(response, data)
 
